@@ -1,0 +1,503 @@
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap')
+
+//! standard
+
+$green: #5cc274
+$yellow: #ffcb03
+$orange: #ff585f
+$white: #fff
+$black: #000
+$green-darker: #46ac74
+$yellow-darker: #ffbb00
+$orange-darker: #fd424b
+$text-color: #333
+$bg-color: #f3f3f3
+$border: 0.1rem solid rgba(18, 16, 16, 0.112)
+
+@mixin grid($val)
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax($val, 1fr))
+    gap: 2rem
+
+@mixin title-text($titleText)
+    font-size: $titleText
+    text-transform: capitalize
+    color: $text-color
+
+@mixin graph-text($graphText)
+    font-size: $graphText
+    line-height: 2
+    color: $text-color
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    outline: none
+    transition: all 0.2s linear
+
+html
+    overflow-x: hidden
+    font-size: 62.5%
+    scroll-behavior: smooth
+    scroll-padding-top: 8rem
+
+    &::-webkit-scrollbar
+        width: 1rem
+        background: #5cc27466
+
+    &::-webkit-scrollbar-track
+        border-radius: 5px
+
+    &::-webkit-scrollbar-thumb
+        background: $green
+        border-radius: 2px
+
+body
+    font-family: 'Poppins', sans-serif
+    font-weight: 300
+    color: $text-color
+    line-height: 1,9
+    background-color: $bg-color
+
+// ! GENERAL ELEMENTS 
+section
+    padding: 4rem 0
+
+    .section--hidden
+        opacity: 0
+        transform: translateY(8rem)
+
+.section__title
+    max-width: 80rem
+    margin: 0 auto 8rem auto
+
+.section__description
+    font-size: 1.8rem
+    font-weight: 600
+    text-transform: uppercase
+    color: $green
+    margin-bottom: 1rem
+
+.section__header
+    font-size: 4rem
+    line-height: 1.3
+    font-weight: 300
+
+.btn
+    display: inline-block
+    background-color: $green
+    font-size: 1.6rem
+    font-family: inherit
+    font-weight: 500
+    border: none
+    padding: 1rem 2rem
+    border-radius: 10px
+    cursor: pointer
+    &:hover
+        background-color: $green-darker
+
+.btn--text
+    display: inline-block
+    background: none
+    font-size: 1.7rem
+    font-weight: 500
+    color: $green
+    border: 1px solid currentColor
+    border-radius: 10px
+    cursor: pointer
+
+    &:hover
+        color: $green-darker
+
+p
+    color: #666
+
+//! NAVIGATION 
+
+.header
+    z-index: 1000
+    padding: 1.5rem
+
+    &.active
+        /* From https://css.glass */
+        background: rgba(92, 194, 116, 0.2)
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1)
+        backdrop-filter: blur(5px)
+        -webkit-backdrop-filter: blur(5px)
+        border: 1px solid rgba(255, 255, 255, 0.3)
+
+        .logo
+            color: $green
+        #menu-btn
+            color: #fff
+        #btnOpen
+            color: #fff
+
+    .logo
+        font-size: 3rem
+        color: $green
+        font-weight: bolder
+        font-family: 'Allerta Stencil', sans-serif
+        text-decoration: none
+
+        &:hover
+            color: $green-darker
+
+    .nav
+        align-items: center
+
+        a
+            font-size: 1.75rem
+            margin-left: 2rem
+            color: $text-color
+            text-transform: capitalize
+
+            &:hover
+                color: $green-darker
+                text-decoration: none
+        #btnOpen
+            font-size: 1.75rem
+            font-weight: 400
+
+            background-color: $green
+            &:hover
+                background-color: $green-darker
+                color: $text-color
+
+        #btnLogin
+            font-size: 1.75rem
+            font-weight: 400
+            background-color: inherit
+            &:hover
+                color: $green-darker
+
+    #menu-btn
+        display: none
+        font-size: 2.5rem
+        cursor: pointer
+        color: $green
+
+        &:hover
+            color: $text-color
+
+// ! HOME SECTION
+.home
+  
+    .header__home
+        display: flex
+        flex-direction: column
+        justify-content: center
+        z-index: 1
+
+        /* From https://css.glass */
+        border-radius: 0 4rem 0 4rem
+        background: rgba(92, 194, 116, 0.326)
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1)
+        backdrop-filter: blur(8.3px)
+        -webkit-backdrop-filter: blur(8.3px)
+
+    .img
+        z-index: -1
+        border-radius: 4rem
+    #headerHome
+        font-size: 4rem
+        font-weight: bold
+        line-height: 1.35
+
+    h4
+        font-size: 2.4rem
+        font-weight: 500
+    .learnMore
+        display: inline-block
+        font-size: 1.7rem
+        line-height: 1.5
+        padding-top: 2rem
+        color: $green-darker
+        cursor: pointer
+
+        &:hover
+            text-decoration: underline
+
+// ! ABOUT US SECTION
+.about
+    img
+        border-radius: 2rem
+    .section__title
+        padding-top: 8rem
+
+        h3
+            @include title-text(2.7rem)
+            padding: 1rem 0
+
+        p
+            @include graph-text(1.5rem)
+            padding-top: 1rem 0
+
+        ul
+            list-style: none
+
+            li
+                padding-top: 1.5rem
+                @include title-text(1.7rem)
+
+                i
+                    padding-right: 1rem
+                    color: $green
+
+// ! Features section
+.features
+    padding: 6rem 4rem
+    .box-container
+        @include grid(30rem)
+    .box
+        border: $border
+        border-radius: 4px
+        .image
+            height: 30rem
+            overflow: hidden
+            img
+                border-radius: 4px
+
+                height: 100%
+                width: 100%
+                object-fit: cover
+                &:hover
+                    transform: scale(1.1)
+        .content
+            padding: 2rem
+            text-align: center
+            h3
+                @include title-text(2rem)
+                padding: 0.5rem 0
+
+            .features-btn
+                display: inline-block
+                font-size: 1.7rem
+                line-height: 1.5
+                color: $green-darker
+                cursor: pointer
+
+// ! OPERATIONS SECTIONS
+.section
+    padding: 6rem 4rem
+
+.operations
+    max-width: 110rem
+    margin: 12rem auto 0 auto
+    background-color: #fff
+    border-radius: 3rem
+    .operations__tab-container
+        display: flex
+        justify-content: center
+
+        .operations__tab
+            margin-right: 2.5rem
+            transform: translateY(-50%)
+
+        .operations__tab--1
+            background-color: $yellow
+
+            &:hover
+                background-color: $yellow-darker
+
+        .operations__tab--2
+            background-color: $green
+            margin-right: 2rem
+
+            &:hover
+                background-color: $green-darker
+
+        .operations__tab--3
+            background-color: $orange
+            margin: 0
+
+            &:hover
+                background-color: $orange-darker
+
+        .operations__tab--active
+            transform: translateY(-66%)
+
+    .operations__content
+        display: none
+        margin: 3rem
+        .pr
+            @include graph-text(1.5rem)
+            justify-content: center
+            align-items: center
+            text-align: center
+            padding: 2rem
+
+        .operations__header
+            font-size: 2.25rem
+            font-weight: 500
+            align-self: center
+            .trans
+                color: $yellow
+            .loans
+                color: $green
+            .closing
+                color: $orange
+    .operations__content--active
+        display: flex
+        flex-direction: column
+
+// ! Testemonials SECTIONS
+.testimonials
+    .slide
+        margin-bottom: 4rem
+        border: $border
+        padding-top: 2rem
+        padding-buttom: 0
+
+        text-align: center
+        img
+            height: 10rem
+            width: 10rem
+            border-radius: 50%
+        p
+            padding: 2rem 10rem
+            line-height: 2
+            text-content: center
+            font-size: 1.6rem
+            color: $text-color
+        .stars
+            display: inline-block
+            padding: .5rem 1.5rem
+            i
+                font-size: 1.8rem
+                color: $green
+        h3
+            font-size: 2rem
+            margin-top: 1.5rem
+            text-transform: capitalize
+            color: var(--black)
+    .swiper-pagination-bullet-active
+        background: $green
+
+.footer
+    background: $green-darker
+    background-size: cover
+    background-position: center
+    background-attachment: fixed
+
+    .box-container
+        @include grid(25rem)
+
+        .box
+        h3
+            @include title-text(2rem)
+            padding: 1rem 0
+
+        a
+            @include graph-text(1.6rem)
+            padding: 0.5rem 0
+            display: block
+            color: $white
+
+            i
+                padding-right: 0.5rem
+                color: $white
+
+            &:hover
+                color: $text-color
+                text-decoration: none
+
+        p
+            @include graph-text(1.8rem)
+        .box3
+            #btnOpen
+                &:hover
+                    color: $text-color
+                    background: $white
+                    text-decoration: none
+
+        .email
+            width: 100%
+            padding: 1.2rem
+            font-size: 1.6rem
+            border: $border
+            margin: 1rem 0
+    .credit
+        text-align: center
+        @include title-text(2rem)
+        padding: 0 1rem
+        margin-top: 3rem
+        padding-top: 3rem
+        border-top: $border
+    span
+        color: $white
+        &:hover
+            color: $text-color
+            cursor: pointer
+
+// ! MEDIA QUERY
+@media (max-width: 1200px)
+    .header
+
+        padding: 2rem
+
+        &.active
+            padding: 2rem
+
+        #menu-btn
+            display: inline-block
+
+            &.bi-x-lg
+                transform: rotate(180deg)
+
+        .nav
+
+            position: absolute
+            top: 99%
+            left: 0
+            right: 0
+            padding: 1rem 0
+            flex-flow: column
+
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0)
+
+            &.active
+                background: rgba(92, 194, 116, 0.803)
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)
+
+            a
+                color: $text-color
+                margin: 1rem 2rem
+                &:hover
+                    color: $white
+
+            #btnOpen
+                background-color: $green-darker
+                &:hover
+                    color: $text-color
+
+            #btnLogin
+                &:hover
+                    color: $white
+
+@media (max-width: 990px)
+    html
+        font-size: 55%
+
+    .home h1
+        font-size: 3rem
+
+@media (max-width: 768px)
+    section
+        padding: 0 4rem
+        .about
+            padding: 0 4rem
+
+    .home
+        .header__home
+            #headerHome
+                font-size: 2.5rem
+            h4
+                font-size: 2rem
+
+@media (max-width: 450px)
+
+    html
+        font-size: 50%

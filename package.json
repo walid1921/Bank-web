@@ -1,0 +1,16 @@
+{
+  "name": "bank-web",
+  "version": "1.0.0",
+  "description": "Landing page for bank",
+  "default": "index.html",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "author": "Walid Kouider Ayad",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^8.0.0",
+    "parcel": "^2.8.2"
+  }
+}
