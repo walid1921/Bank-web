@@ -4,6 +4,7 @@
   "description": "Landing page for bank",
   "default": "index.html",
   "scripts": {
+    "compile:sass": "node-sass sass/style.sass css/main.css -w",
     "start": "parcel index.html",
     "build": "parcel build index.html --dist-dir ./dist"
   },
@@ -12,5 +13,8 @@
   "devDependencies": {
     "node-sass": "^8.0.0",
     "parcel": "^2.8.2"
+  },
+  "dependencies": {
+    "live-server": "^1.2.2"
   }
 }
