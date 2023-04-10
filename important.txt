@@ -1,0 +1,6 @@
+if u want any changes
+1) Terminal: npm run compile:sass
+save on github
+2) git add -A
+3) git commit -m 'Added readme'
+4) git push origin master

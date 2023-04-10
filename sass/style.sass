@@ -183,24 +183,26 @@ p
             color: $text-color
 
 // ! HOME SECTION
-.home
-  
-    .header__home
+.home 
+    display: flex
+    height: 100vh
+    background-image: url('/img/pic1.jpg')
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+            
+    .container
         display: flex
-        flex-direction: column
-        justify-content: center
-        z-index: 1
+        align-items: center
 
-        /* From https://css.glass */
-        border-radius: 0 4rem 0 4rem
-        background: rgba(92, 194, 116, 0.326)
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1)
-        backdrop-filter: blur(8.3px)
-        -webkit-backdrop-filter: blur(8.3px)
+        .title
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: left
+            padding: 5rem
 
-    .img
-        z-index: -1
-        border-radius: 4rem
+            
     #headerHome
         font-size: 4rem
         font-weight: bold
@@ -486,18 +488,33 @@ p
 
 @media (max-width: 768px)
     section
+        h1
+            
+            font-size: 25px !important
+        h4
+            font-size: 15px !important
+        a
+            font-size: 10px !important
         padding: 0 4rem
         .about
             padding: 0 4rem
 
-    .home
-        .header__home
-            #headerHome
-                font-size: 2.5rem
-            h4
-                font-size: 2rem
+
 
 @media (max-width: 450px)
+
+    section
+
+        h1
+            
+            font-size: 18px !important
+        h4
+            font-size: 12px !important
+        a
+            font-size: 8px !important
+
+
+
 
     html
         font-size: 50%
